@@ -78,6 +78,52 @@ public class VectorPeliculas{
                 }
             }
         }
+    }
 
+    /**
+     * Metodo para mostrar peliculas disponibles en el sistema
+     */
+    public void mostrarPeliculasDisponibles(){
+        System.out.println("\n\n Peliculas disponibles Memorabilia");
+        for(int i=0; i<(siguienteCodigo-1); i++){
+            if(peliculas[i].isDisponible()==true){
+                System.out.println("-"+(i+1)+") "+ peliculas[i].getInformacion());
+            }
+        }
+        System.out.println("\n\n");
+    }
+
+    /**
+     * Metodo para mostrar peliculas prestadas en el sistema
+     */
+    public void mostrarPeliculasPrestadas(){
+        System.out.println("\n\n Peliculas prestadas Memorabilia");
+        for(int i=0; i<(siguienteCodigo-1); i++){
+            if(peliculas[i].isDisponible()==false){
+                System.out.println("-"+(i+1)+") "+ peliculas[i].getInformacion());
+            }
+        }
+        System.out.println("\n\n");
+    }
+
+    /**
+     * Metodo para prestar una pelicula
+     */
+    public void prestamoPelicula(){
+        int peliculaPrestada=0;
+
+        mostrarPeliculasDisponibles();
+        peliculaPrestada = IngresoDatos.getEntero("¿Qué pelicula deseas prestar?", true);
+        peliculas[peliculaPrestada-1].setDisponible(false);
+    }
+
+    /**
+     * Metodo para devolver pelicula
+     */
+    public void devolverPelicula(){
+        int peliculaEnDevolucion=0;
+        mostrarPeliculasPrestadas();
+        peliculaEnDevolucion = IngresoDatos.getEntero("¿Qué pelicula deseas devolver?", true);
+        peliculas[peliculaEnDevolucion-1].setDisponible(true);
     }
 }

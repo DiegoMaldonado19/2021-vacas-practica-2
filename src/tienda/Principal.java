@@ -99,13 +99,16 @@ public class Principal {
                 break;
 
                 case 9:
+                    tablaPeliculas.prestamoPelicula();
                 break;
 
                 case 10:
+                    tablaPeliculas.devolverPelicula();
                 break;
 
                 case -1:
-
+                    System.out.println("Estas saliendo......");
+                    System.out.println("Esperamos vuelvas pronto");
                 break;
 
                 default:
